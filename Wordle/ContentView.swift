@@ -18,12 +18,21 @@ struct ContentView: View {
                 .font(.system(size: 40, weight: .semibold, design: .serif))
             Text("By: E-Han Kannuthurai")
                 .font(.system(size: 18, weight: .regular, design: .serif))
+            NavigationView {
+                NavigationLink(destination: PlayView())
+                {
+                    Text("Play")
+                }
+                //.navigationBarTitle("Play")
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+        }
     }
 }
