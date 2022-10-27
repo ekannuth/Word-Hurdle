@@ -8,24 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var play = false
     var body: some View {
         VStack(
             alignment: .center,
-            spacing: 10
-        )
-        {
-            Text("Wordle 2")
-                .font(.system(size: 40, weight: .semibold, design: .serif))
-            Text("By: E-Han Kannuthurai")
-                .font(.system(size: 18, weight: .regular, design: .serif))
-            NavigationView {
-                NavigationLink(destination: PlayView())
-                {
+            spacing: 50
+        ){
+            if play == false {
+                Text("Word Hurdle")
+                    .font(.system(size: 55, weight: .semibold, design: .serif))
+                Text("By: E-Han Kannuthurai")
+                    .font(.system(size: 20, weight: .regular, design: .serif))
+                Button(action: {
+                    play = true
+                }, label: {
                     Text("Play")
                 }
-                //.navigationBarTitle("Play")
+                )
+            }
+            else {
+                PlayView()
             }
         }
+        .offset(y: -90)
     }
 }
 
